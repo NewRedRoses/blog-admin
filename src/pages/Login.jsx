@@ -4,7 +4,7 @@ function Login() {
     <>
       <div className="content">
         <div className="login-card">
-          <h1>Log In</h1>
+          <h1 className="login-greeting">Log In</h1>
           <form action="/" method="post" className="login-form">
             <div className="email-section">
               <label htmlFor="email">Email</label>
