@@ -32,6 +32,9 @@ body {
   display: flex;
   flex-direction: column;
 }
+.password-section {
+  padding-bottom: 15px;
+}
 .email-section label,
 .password-section label {
   font-weight: bold;
