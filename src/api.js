@@ -25,7 +25,7 @@ export const authenticatedRequest = async (
   const response = await fetch(url, options);
 
   // Check if the response is unauthorized
-  if (response.status === 401) {
+  if (response.status === 403) {
     // Token might be expired or invalid
     localStorage.removeItem("token");
     window.location.href = "/login"; // Redirect to login page
