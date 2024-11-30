@@ -1,0 +1,10 @@
+body {
+  background-color: var(--bg-color-alt);
+}
+.manage-post-container {
+  color: var(--fr-color);
+  padding: 20px;
+  background-color: var(--fr-color);
+  border-radius: 5px;
+  background-color: var(--bg-color);
+}
