@@ -101,8 +101,7 @@ export default function Manage() {
     <div className="content">
       <div className="manage-post-container">
         <h1>Posts</h1>
-
-        <PostList />
+        {posts.length > 0 ? <PostList /> : "Nothing to see here..."}
       </div>
     </div>
   );
