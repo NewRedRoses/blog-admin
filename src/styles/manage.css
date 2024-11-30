@@ -8,3 +8,23 @@ body {
   border-radius: 5px;
   background-color: var(--bg-color);
 }
+.posts-container {
+  display: flex;
+  flex-direction: column;
+  list-style-type: none; /* Remove bullets */
+  padding: 0;
+  gap: 10px;
+}
+.post-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.post-url {
+  font-size: 1.05em;
+  font-weight: 600;
+  width: 10em;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
