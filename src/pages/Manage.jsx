@@ -30,16 +30,19 @@ export default function Manage() {
     fetchData();
   }, [navigate]);
 
-  const handleDelete = async (postId) => {
+  const handleUnpublish = async (postId) => {
     try {
-      // Use authenticatedRequest for delete with proper method
+      // Use authenticatedRequest for unpublish with proper method
       await authenticatedRequest(
-        `http://localhost:3000/posts/${postId}`,
-        "DELETE"
+        `http://localhost:3000/posts/${postId}?publish=false`,
+        "PATCH"
       );
 
-      // Remove the deleted post from the local state
-      console.log("delete request");
+      setPosts((prevPosts) =>
+        prevPosts.map((post) =>
+          post.id === postId ? { ...post, date_published: null } : post
+        )
+      );
     } catch (err) {
       console.error("Delete failed:", err);
       setError("Failed to delete post");
@@ -50,19 +53,21 @@ export default function Manage() {
     try {
       // Use authenticatedRequest for publish (assuming PUT method)
       const updatedPost = await authenticatedRequest(
-        `http://localhost:3000/posts/${postId}`,
-        "PUT",
-        { published: true }
+        `http://localhost:3000/posts/${postId}?publish=true`,
+        "PATCH",
+        { date_published: new Date() }
       );
 
-      // Update the local state with the published post
-      setPosts(posts.map((post) => (post.id === postId ? updatedPost : post)));
+      setPosts((prevPosts) =>
+        prevPosts.map((post) =>
+          post.id === postId ? { ...post, date_published: new Date() } : post
+        )
+      );
     } catch (err) {
       console.error("Publish failed:", err);
       setError("Failed to publish post");
     }
   };
-
   // Error handling UI
   if (error) {
     return (
@@ -79,18 +84,15 @@ export default function Manage() {
         {posts.map((post) => (
           <li key={post.id} className="post-container">
             <span className="post-url">{post.title}</span>
-            <button
-              className="post-delete-btn"
-              onClick={() => handleDelete(post.id)}
-            >
-              Delete
-            </button>
-            <button
-              className="post-publish-btn"
-              onClick={() => handlePublish(post.id)}
-            >
-              {post.published ? "Unpublish" : "Publish"}
-            </button>
+            {post.date_published == null ? (
+              <button className="btn" onClick={() => handlePublish(post.id)}>
+                publish
+              </button>
+            ) : (
+              <button className="btn" onClick={() => handleUnpublish(post.id)}>
+                unpublish
+              </button>
+            )}
           </li>
         ))}
       </ul>
@@ -99,7 +101,7 @@ export default function Manage() {
 
   return (
     <div className="content">
-      <div className="manage-post-container">
+      <div className="card">
         <h1>Posts</h1>
         {posts.length > 0 ? <PostList /> : "Nothing to see here..."}
       </div>
