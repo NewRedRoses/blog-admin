@@ -43,7 +43,7 @@ export default function Login() {
 
   return (
     <div className="content">
-      <div className="login-card">
+      <div className="card">
         <h2 className="login-greeting">Login</h2>
 
         <form onSubmit={handleSubmit}>
@@ -67,7 +67,7 @@ export default function Login() {
               required
             />
           </div>
-          <button type="submit" className="login-btn">
+          <button type="submit" className="btn">
             Login
           </button>
         </form>

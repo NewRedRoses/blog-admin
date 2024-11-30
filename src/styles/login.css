@@ -6,7 +6,7 @@
   align-items: center;
   height: 100vh;
 }
-.login-card {
+.card {
   padding: 20px;
   background-color: var(--fr-color);
   border-radius: 5px;
@@ -41,7 +41,7 @@
   border-radius: 5px;
   font-weight: 500;
 }
-.login-btn {
+.btn {
   background-color: var(--bg-color);
   height: 30px;
   color: var(--fr-color);
@@ -50,7 +50,7 @@
   border: 0;
   border-radius: 5px;
 }
-.login-btn:hover {
+.btn:hover {
   cursor: pointer;
   box-shadow: #2c3e50;
 }
