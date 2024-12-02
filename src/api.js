@@ -28,7 +28,7 @@ export const authenticatedRequest = async (
   if (response.status === 403) {
     // Token might be expired or invalid
     localStorage.removeItem("token");
-    window.location.href = "/login"; // Redirect to login page
+    window.location.href = "/"; // Redirect to login page
     throw new Error("Unauthorized");
   }
 
