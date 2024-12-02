@@ -1,7 +1,9 @@
 import { useEffect, useState } from "react";
 import { authenticatedRequest } from "../api"; // Import the authenticated request utility
-import { useNavigate } from "react-router-dom"; // Add navigation for redirecting if needed
+import { Link, useNavigate } from "react-router-dom"; // Add navigation for redirecting if needed
 import "../styles/manage.css";
+
+import { SquarePen } from "lucide-react";
 
 export default function Manage() {
   const [posts, setPosts] = useState([]);
@@ -105,7 +107,12 @@ export default function Manage() {
   return (
     <div className="content">
       <div className="card">
-        <h1>Posts</h1>
+        <h1 className="posts-header">
+          <span>Posts</span>
+          <Link to="/new">
+            <SquarePen className="create-post-icon" />
+          </Link>
+        </h1>
         {posts.length > 0 ? <PostList /> : "Nothing to see here..."}
       </div>
     </div>

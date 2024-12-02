@@ -34,3 +34,16 @@ body {
   color: #2980b9;
   text-decoration: underline;
 }
+.posts-header {
+  display: flex;
+  justify-content: space-between;
+}
+.posts-header a {
+  display: flex;
+  align-items: center;
+}
+.posts-header .create-post-icon {
+  color: var(--bg-color);
+  width: 1em;
+  height: 1em;
+}
