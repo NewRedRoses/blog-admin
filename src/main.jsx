@@ -4,6 +4,7 @@ import "./index.css";
 import Login from "./pages/Login.jsx";
 import Manage from "./pages/Manage.jsx";
 import Post from "./pages/Post.jsx";
+import NewPost from "./pages/NewPost.jsx";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 const router = createBrowserRouter([
@@ -18,6 +19,10 @@ const router = createBrowserRouter([
   {
     path: "/manage/:postId",
     element: <Post />,
+  },
+  {
+    path: "/new",
+    element: <NewPost />,
   },
 ]);
 
