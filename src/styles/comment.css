@@ -18,7 +18,10 @@
   color: var(--bg-color);
   padding: 10px;
 }
-.comment-author-container {
+.comment-top-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   font-size: 1.1rem;
   font-weight: bold;
   padding-bottom: 4px;
@@ -29,4 +32,14 @@
 }
 .comment-date-container {
   font-size: 0.8rem;
+}
+.delete-comment-btn {
+  padding: 0 1px;
+  border: none;
+  background-color: transparent;
+  color: var(--bg-color);
+}
+.delete-comment-btn:hover {
+  cursor: pointer;
+  color: #e74c3c;
 }
