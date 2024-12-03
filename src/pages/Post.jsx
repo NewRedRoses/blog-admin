@@ -57,6 +57,7 @@ export default function Post() {
             return (
               <Comment
                 key={comment.id}
+                id={comment.id}
                 author={comment.user.name}
                 text={comment.text}
                 date={formattedDate}

@@ -1,10 +1,14 @@
 import "../styles/comment.css";
 import { Trash2 } from "lucide-react";
-export default function Comment({ author, text, date }) {
-  function handleDelete() {
+import { authenticatedRequest } from "../api"; // Import the authenticated request utility
+
+export default function Comment({ id, author, text, date }) {
+  const url = `http://localhost:3000/admin/comments/${id}`;
+
+  async function handleDelete() {
     const decision = confirm("Are you sure you want to delete this comment?");
     if (decision) {
-      //
+      await authenticatedRequest(url, "DELETE");
     }
   }
   return (
