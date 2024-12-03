@@ -1,3 +1,7 @@
+.comments-container {
+  max-width: 500px;
+  margin: auto;
+}
 .comments-header {
   color: var(--fr-color);
 }
