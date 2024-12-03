@@ -10,7 +10,7 @@ export default function Post() {
   const [comments, setComments] = useState([]);
   const { postId } = useParams();
   const url = `http://localhost:3000/admin/posts/${postId}`;
-  const commentsUrl = `http://localhost:3000/comments/${postId}`;
+  const commentsUrl = `http://localhost:3000/admin/comments/${postId}`;
 
   useEffect(() => {
     const fetchData = async () => {
