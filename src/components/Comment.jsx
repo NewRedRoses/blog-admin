@@ -2,12 +2,22 @@ import "../styles/comment.css";
 import { Trash2 } from "lucide-react";
 import { authenticatedRequest } from "../api"; // Import the authenticated request utility
 
-export default function Comment({ id, author, text, date }) {
+export default function Comment({
+  id,
+  author,
+  text,
+  date,
+  comments,
+  setComments,
+}) {
   const url = `http://localhost:3000/admin/comments/${id}`;
 
   async function handleDelete() {
     const decision = confirm("Are you sure you want to delete this comment?");
     if (decision) {
+      // remove comment from state
+      setComments(comments.filter((a) => a.id !== id));
+      // send req to remove comment from db
       await authenticatedRequest(url, "DELETE");
     }
   }

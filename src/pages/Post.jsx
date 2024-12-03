@@ -61,6 +61,8 @@ export default function Post() {
                 author={comment.user.name}
                 text={comment.text}
                 date={formattedDate}
+                comments={comments}
+                setComments={setComments}
               />
             );
           })}
