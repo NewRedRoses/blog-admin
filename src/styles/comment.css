@@ -1,0 +1,32 @@
+.comments-header {
+  color: var(--fr-color);
+}
+.comments-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 0;
+}
+
+.comment-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  border: 2px solid var(--fr-color-alt);
+  border-radius: 5px;
+  background-color: var(--fr-color);
+  color: var(--bg-color);
+  padding: 10px;
+}
+.comment-author-container {
+  font-size: 1.1rem;
+  font-weight: bold;
+  padding-bottom: 4px;
+  border-bottom: 1px solid #b5c4d4;
+}
+.comment-text-container {
+  font-size: 1rem;
+}
+.comment-date-container {
+  font-size: 0.8rem;
+}
