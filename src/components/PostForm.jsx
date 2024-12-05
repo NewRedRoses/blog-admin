@@ -1,6 +1,6 @@
 import { authenticatedRequest } from "../api"; // Import the authenticated request utility
 import "../styles/post.css";
-
+import { Editor } from "@tinymce/tinymce-react";
 export default function PostForm({ title, url, requestType, post, setPost }) {
   async function handleSubmit() {
     const send = confirm("Are you sure you want to submit these changes?");
@@ -15,6 +15,9 @@ export default function PostForm({ title, url, requestType, post, setPost }) {
     }
   }
 
+  const handleEditorChange = (value) => {
+    setPost({ ...post, content: value });
+  };
   return (
     <>
       <div className="post-update-form">
@@ -30,16 +33,30 @@ export default function PostForm({ title, url, requestType, post, setPost }) {
             required
           />
         </div>
-
         <div className="post-content-container">
           <label htmlFor="post_content">Post&apos;s content:</label>
-          <textarea
-            name="post_content"
-            id="post_content"
+          <Editor
+            apiKey="vjo3bb18wsev7vhdm8v93fj545hv8n0ayk4spa0n656u5qnt"
+            init={{
+              plugins: [
+                "anchor",
+                "autolink",
+                "charmap",
+                "codesample",
+                "emoticons",
+                "image",
+                "link",
+                "lists",
+                "media",
+                "searchreplace",
+                "table",
+                "visualblocks",
+                "wordcount",
+              ],
+            }}
             value={post.content}
-            onChange={(e) => setPost({ ...post, content: e.target.value })}
-            required
-          ></textarea>
+            onEditorChange={handleEditorChange}
+          />
         </div>
 
         <button
