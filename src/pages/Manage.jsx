@@ -86,9 +86,7 @@ export default function Manage({ backendUrl }) {
       <ul className="posts-container">
         {posts.map((post) => (
           <li key={post.id} className="post-container">
-            <a href={`/manage/${post.id}`} className="post-url">
-              {post.title}
-            </a>
+            <Link to={`/manage/${post.id}`}>{post.title}</Link>
 
             {post.date_published == null ? (
               <button className="btn" onClick={() => handlePublish(post.id)}>
