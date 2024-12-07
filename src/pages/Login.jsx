@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "../styles/login.css";
 
-export default function Login() {
+export default function Login({ backendUrl }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
@@ -12,7 +12,7 @@ export default function Login() {
 
     try {
       // Send login request to backend
-      const response = await fetch("http://localhost:3000/login", {
+      const response = await fetch(`${backendUrl}login`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

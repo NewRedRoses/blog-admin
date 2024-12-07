@@ -9,8 +9,9 @@ export default function Comment({
   date,
   comments,
   setComments,
+  backendUrl,
 }) {
-  const url = `http://localhost:3000/admin/comments/${id}`;
+  const url = `${backendUrl}admin/comments/${id}`;
 
   async function handleDelete() {
     const decision = confirm("Are you sure you want to delete this comment?");

@@ -7,22 +7,24 @@ import Post from "./pages/Post.jsx";
 import NewPost from "./pages/NewPost.jsx";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
+const backendUrl = "https://blog-backend-production-347b.up.railway.app/";
+
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Login />,
+    element: <Login backendUrl={backendUrl} />,
   },
   {
     path: "/manage",
-    element: <Manage />,
+    element: <Manage backendUrl={backendUrl} />,
   },
   {
     path: "/manage/:postId",
-    element: <Post />,
+    element: <Post backendUrl={backendUrl} />,
   },
   {
     path: "/new",
-    element: <NewPost />,
+    element: <NewPost backendUrl={backendUrl} />,
   },
 ]);
 

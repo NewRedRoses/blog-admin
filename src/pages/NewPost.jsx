@@ -1,9 +1,9 @@
 import { useState } from "react";
 import PostForm from "../components/PostForm";
 import NavButton from "../components/NavButton.jsx";
-export default function NewPost() {
+export default function NewPost({ backendUrl }) {
   const [post, setPost] = useState("");
-  const url = "http://localhost:3000/admin/posts/";
+  const url = `${backendUrl}admin/posts/`;
   return (
     <>
       <div className="post-content">

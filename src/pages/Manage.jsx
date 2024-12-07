@@ -5,18 +5,18 @@ import "../styles/manage.css";
 
 import { SquarePen } from "lucide-react";
 
-export default function Manage() {
+export default function Manage({ backendUrl }) {
   const [posts, setPosts] = useState([]);
   const [error, setError] = useState(null);
   const navigate = useNavigate();
+
+  const url = `${backendUrl}admin/posts`;
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         // Use authenticatedRequest instead of fetch
-        const data = await authenticatedRequest(
-          "http://localhost:3000/admin/posts"
-        );
+        const data = await authenticatedRequest(url);
         setPosts(data);
       } catch (err) {
         // Handle potential errors (like unauthorized access)
@@ -30,13 +30,14 @@ export default function Manage() {
     };
 
     fetchData();
-  }, [navigate]);
+  }, [navigate, url]);
 
   const handleUnpublish = async (postId) => {
     try {
       // Use authenticatedRequest for unpublish with proper method
+
       await authenticatedRequest(
-        `http://localhost:3000/posts/${postId}?publish=false`,
+        `${backendUrl}posts/${postId}?publish=false`,
         "PATCH"
       );
 
@@ -55,7 +56,7 @@ export default function Manage() {
     try {
       // Use authenticatedRequest for publish (assuming PUT method)
       const updatedPost = await authenticatedRequest(
-        `http://localhost:3000/posts/${postId}?publish=true`,
+        `${backendUrl}posts/${postId}?publish=true`,
         "PATCH",
         { date_published: new Date() }
       );

@@ -6,12 +6,13 @@ import NavButton from "../components/NavButton";
 import Comment from "../components/Comment";
 import { MessageCircleDashed } from "lucide-react";
 
-export default function Post() {
+export default function Post({ backendUrl }) {
   const [post, setPost] = useState("");
   const [comments, setComments] = useState([]);
   const { postId } = useParams();
-  const url = `http://localhost:3000/admin/posts/${postId}`;
-  const commentsUrl = `http://localhost:3000/admin/comments/${postId}`;
+
+  const url = `${backendUrl}admin/posts/${postId}`;
+  const commentsUrl = `${backendUrl}admin/comments/${postId}`;
 
   useEffect(() => {
     const fetchData = async () => {
@@ -70,6 +71,7 @@ export default function Post() {
                     date={formattedDate}
                     comments={comments}
                     setComments={setComments}
+                    backendUrl={backendUrl}
                   />
                 );
               })}
