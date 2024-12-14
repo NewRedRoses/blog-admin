@@ -29,3 +29,16 @@
     sans-serif;
   font-size: 1em;
 }
+.post-preview-card {
+  max-width: 500px;
+  border-radius: 5px;
+  margin: auto;
+  color: var(--bg-color);
+  background-color: var(--fr-color);
+  padding: 25px;
+  margin-top: 40px;
+}
+.post-content-preview-container {
+  max-width: 500px;
+  margin: auto;
+}

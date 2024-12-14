@@ -5,6 +5,7 @@ import { authenticatedRequest } from "../api"; // Import the authenticated reque
 import NavButton from "../components/NavButton";
 import Comment from "../components/Comment";
 import { MessageCircleDashed } from "lucide-react";
+import PostPreview from "../components/PostPreview";
 
 export default function Post({ backendUrl }) {
   const [post, setPost] = useState("");
@@ -40,6 +41,8 @@ export default function Post({ backendUrl }) {
           post={post}
           setPost={setPost}
         />
+
+        <PostPreview content={post.content} title={post.title} />
       </div>
 
       <div className="comments-container">
